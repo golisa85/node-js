@@ -1,0 +1,21 @@
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  const url = req.url;
+  if (url === '/') {
+  res.write('<html>');
+  res.write('<head><title>URL1 Page</title><head>');
+  res.write('<body><h1>Hello World!</h1></body>');
+  res.write('</html>');
+  return res.end();
+  }
+  if (url === '/test') {
+    res.write('<html>');
+    res.write('<head><title>URL2 Page</title><head>');
+    res.write('<body><h1>Test Now</h1></body>');
+    res.write('</html>');
+    return res.end();
+  }
+});
+
+server.listen(3000);
